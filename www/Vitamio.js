@@ -30,8 +30,8 @@ Vitamio.install = function () {
 	if (!window.plugins) {
 		window.plugins = {};
 	}
-	window.plugins.vitamio = new Vitamio();
-	return window.plugins.vitamio;
+	window.plugins.edimax = new Vitamio();
+	return window.plugins.edimax;
 };
 
 cordova.addConstructor(Vitamio.install);
