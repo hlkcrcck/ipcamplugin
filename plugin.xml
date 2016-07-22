@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+		xmlns="http://apache.org/cordova/ns/plugins/1.0"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		id="com.edimax.edilife"
+		version="0.0.2">
+
+	<name>Vitamio</name>
+
+	<engines>
+		<engine name="cordova" version=">=3.0.0" />
+	</engines>
+
+	<js-module src="www/Vitamio.js" name="Vitamio">
+		<clobbers target="vitamio" />
+	</js-module>
+
+	<!-- android -->
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="Vitamio">
+				<param name="android-package" value="com.edimax.edilife.Vitamio" />
+			</feature>
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+			<uses-permission android:name="android.permission.INTERNET"/>
+			<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+			<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+			<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+			<uses-permission android:name="android.permission.RECORD_AUDIO"/>
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<activity
+				android:name="com.edimax.edilife.MainActivity"
+				android:screenOrientation="portrait">
+				<intent-filter>
+					<action android:name="ACTION_PLAY_VIDEO"/>
+					<category android:name="android.intent.category.DEFAULT"/>
+				</intent-filter>
+			</activity>
+			<service
+				android:name="com.edimax.edilife.service.LifeService"
+				android:enabled="true"
+				android:exported="true">
+				<intent-filter>
+					<action android:name="com.edimax.edilife.service.LifeService"/>
+				</intent-filter>
+			</service>
+		</config-file>
+		<config-file target="res/values/colors.xml" parent="/resources">
+			<color name="colorPrimary">#3F51B5</color>
+			<color name="colorPrimaryDark">#303F9F</color>
+			<color name="colorAccent">#FF4081</color>
+		</config-file>
+		<config-file target="res/values/styles.xml" parent="/resources">
+			<style name="AppTheme" parent="@android:style/Theme.Holo.Light">
+			</style>
+		</config-file>
+		<config-file target="res/values/strings.xml" parent="/resources">
+			<string name="start_stream">Stream start</string>
+			<string name="stop_stream">Stream stop</string>
+			<string name="log_out">Log-out</string>
+			<string name="status">Status : </string>
+			<string name="hd">HD</string>
+			<string name="sd">SD</string>
+			<string name="smooth">SMOOTH</string>
+		</config-file>
+		<source-file src="src/android/Vitamio.java" target-dir="src/com/edimax/edilife" />
+		<source-file src="src/android/MainActivity.java" target-dir="src/com/edimax/edilife" />
+		<source-file src="src/android/ipcam/page/MainFrame.java" target-dir="src/com/edimax/edilife" />
+		<source-file src="src/android/ipcam/page/LiveView.java" target-dir="src/com/edimax/edilife" />
+		<source-file src="src/android/service/LifeService.java" target-dir="src/com/edimax/edilife" />
+		<source-file src="src/android/ipcam/data/DeviceInfo.java" target-dir="src/com/edimax/edilife" />
+		<source-file src="src/android/handle/DataParser.java" target-dir="src/com/edimax/edilife" />
+		<source-file src="src/android/libs/armeabi/libffmpeg.so" target-dir="libs/armeabi" />
+		<source-file src="src/android/libs/armeabi/libLifeAPI.so" target-dir="libs/armeabi" />
+		<source-file src="src/android/res/layout/main_activity.xml" target-dir="res/layout"/>
+		<source-file src="src/android/res/layout/main_frame.xml" target-dir="res/layout"/>
+	</platform>
+</plugin>
