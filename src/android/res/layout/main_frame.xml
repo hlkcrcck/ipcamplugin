@@ -6,65 +6,6 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
-
-        <Button
-            android:id="@+id/start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:text="@string/start_stream"
-            android:textSize="16sp"/>
-
-        <Button
-            android:id="@+id/stop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/start"
-            android:text="@string/stop_stream"
-            android:textSize="16sp"/>
-
-        <Button
-            android:id="@+id/logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="@string/log_out"
-            android:textSize="16sp"/>
-
-        <Button
-            android:id="@+id/smooth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/start"
-            android:enabled="false"
-            android:text="@string/smooth"
-            android:textSize="16sp"/>
-
-        <Button
-            android:id="@+id/sd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/start"
-            android:layout_toRightOf="@id/smooth"
-            android:enabled="false"
-            android:text="@string/sd"
-            android:textSize="16sp"/>
-
-        <Button
-            android:id="@+id/hd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/start"
-            android:layout_toRightOf="@id/sd"
-            android:enabled="false"
-            android:text="@string/hd"
-            android:textSize="16sp"/>
-    </RelativeLayout>
-
-    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
