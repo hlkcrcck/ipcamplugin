@@ -108,16 +108,16 @@ public class MainFrame extends FrameLayout
 		LayoutInflater.from(getContext()).inflate(R.layout.main_frame, this, true);
 
 		// Init btn onClick
-		//Button btn;
-		//int mBtn_ids[] = new int[]{
-		//		R.id.start, R.id.stop, R.id.logout, R.id.smooth, R.id.sd, R.id.hd
-		//};
+		Button btn;
+		int mBtn_ids[] = new int[]{
+				R.id.start, R.id.stop, R.id.logout, R.id.smooth, R.id.sd, R.id.hd
+		};
 
-		//for (int i = 0; i < mBtn_ids.length; i++) {
-		//	if ((btn = (Button) findViewById(mBtn_ids[i])) != null) {
-		//		btn.setOnClickListener(this);
-		//	}
-		//}
+		for (int i = 0; i < mBtn_ids.length; i++) {
+			if ((btn = (Button) findViewById(mBtn_ids[i])) != null) {
+				btn.setOnClickListener(this);
+			}
+		}
 
 		// For Streaming
 		mSurfaceView    = (LiveView) findViewById(R.id.stream_view);
@@ -168,7 +168,7 @@ public class MainFrame extends FrameLayout
 			public void run() {
 				mStatusView.setText(" STARTING RTSP.");
 				mSurfaceView.setVisibility(VISIBLE);
-				//setBtnEnable(false);
+				setBtnEnable(false);
 			}
 		});
 		// We start RTSP by default path which is DEV_RTSP_h264_profile0_path
@@ -185,7 +185,7 @@ public class MainFrame extends FrameLayout
 		mStatusView.setText(" STOPPING RTSP.");
 		mSurfaceView.stopShow();
 		mSurfaceView.setVisibility(GONE);
-		//setBtnEnable(true);
+		setBtnEnable(true);
 	}
 
 	private void setResolution(int resolution) {
@@ -203,12 +203,12 @@ public class MainFrame extends FrameLayout
 
 	}
 
-	/*private void setBtnEnable(boolean enable) {
+	private void setBtnEnable(boolean enable) {
 		findViewById(R.id.start).setEnabled(enable);
 		findViewById(R.id.smooth).setEnabled(enable);
 		findViewById(R.id.sd).setEnabled(enable);
 		findViewById(R.id.hd).setEnabled(enable);
-	}*/
+	}
 
 	@Override
 	public void onLifeJobCallback(String strDUID, int nJob, int nCustomID, byte[] bpData, int nDataSize, int nReturn) {
@@ -295,7 +295,7 @@ public class MainFrame extends FrameLayout
 				post(new Runnable() {
 					@Override
 					public void run() {
-						//setBtnEnable(true);
+						setBtnEnable(true);
 						findViewById(R.id.start).setEnabled(false);
 					}
 				});
@@ -327,7 +327,7 @@ public class MainFrame extends FrameLayout
 					@Override
 					public void run() {
 						mStatusView.setText(" RTSP Interrupted Exception.");
-						//setBtnEnable(false);
+						setBtnEnable(false);
 					}
 				});
 				startRTSP();
@@ -338,7 +338,7 @@ public class MainFrame extends FrameLayout
 				@Override
 				public void run() {
 					mStatusView.setText(" DISCONNECTED.");
-					//setBtnEnable(false);
+					setBtnEnable(false);
 				}
 			});
 			doConnect(mMode);
@@ -440,14 +440,16 @@ public class MainFrame extends FrameLayout
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-			/*case R.id.start:
+			case R.id.start:
 				startRTSP();
 				break;
 			case R.id.stop:
 				stopStreaming();
 				break;
 			case R.id.smooth:
-				//stop RTSP before change resolution
+				/**
+				 * stop RTSP before change resolution
+				 */
 				stopStreaming();
 				setResolution(LIFE_SET_SMOOTH);
 				break;
@@ -461,7 +463,7 @@ public class MainFrame extends FrameLayout
 				break;
 			case R.id.logout:
 				mActivity.finish();
-				break;*/
+				break;
 		}
 	}
 
@@ -469,7 +471,7 @@ public class MainFrame extends FrameLayout
 	public boolean handleMessage(Message msg) {
 		switch (msg.what) {
 			case LIFE_PARSER_PNV_DONE:
-				//setBtnEnable(true);
+				setBtnEnable(true);
 				break;
 		}
 		return false;
