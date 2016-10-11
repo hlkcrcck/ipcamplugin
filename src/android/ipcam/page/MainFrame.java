@@ -270,6 +270,7 @@ public class MainFrame extends FrameLayout
 				if (nCustomID == LIFE_GET_PNV_INFO) {
 					if (isDebug) Log.i(TAG, "GET INFO SUCCESS");
 					DataParser.parsing_pnv_listall_info(new String(bpData, 0, nDataSize), mHandler);
+					startRTSP();
 				} else if (nCustomID == LIFE_SET_SMOOTH || nCustomID == LIFE_SET_SD || nCustomID == LIFE_SET_HD) {
 					if (isDebug) Log.i(TAG, "CHANGE RESOLUTION SUCCESS");
 					isChangeResolution = true;
