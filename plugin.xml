@@ -73,6 +73,9 @@
 		<source-file src="src/android/service/LifeService.java" target-dir="src/com/edimax/edilife" />
 		<source-file src="src/android/ipcam/data/DeviceInfo.java" target-dir="src/com/edimax/edilife" />
 		<source-file src="src/android/handle/DataParser.java" target-dir="src/com/edimax/edilife" />
+		
+		<source-file src="src/android/libs/armeabi/libffmpeg.so" target-dir="libs/arm" framework="true"/>
+		<source-file src="src/android/libs/armeabi/libLifeAPI.so" target-dir="libs/arm" framework="true"/>
 	
 		<source-file src="src/android/res/layout/main_activity.xml" target-dir="res/layout"/>
 		<source-file src="src/android/res/layout/main_frame.xml" target-dir="res/layout"/>
