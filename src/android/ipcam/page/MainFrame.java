@@ -35,7 +35,7 @@ public class MainFrame extends FrameLayout
 
 	// Info
 	public static final String MAC_3140 = "74DA3844F537";
-	public static final String MAC_5150 = "001A2A1ADDC1";
+	public static final String MAC_5150 = "74DA3844F537";
 	public static final String USER     = "admin";
 	public static final String PASSWORD = "1234";
 
